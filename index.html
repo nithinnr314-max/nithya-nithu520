@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Happy Birthday NITHYA 💖 | Romantic Celebration Experience">
+    <title>Happy Birthday NITHYA 💖</title>
+    <!-- Tailwind CSS for modern responsive utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for romantic icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts: Dancing Script & Poppins for romantic typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <!-- Canvas Confetti for realistic celebrations -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2c0b1a 0%, #4a1535 50%, #1a0510 100%);
+            color: #fff;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            touch-action: manipulation;
+        }
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+        /* Floating hearts & petals animation */
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0.6) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+        }
+        .petal {
+            position: fixed;
+            pointer-events: none;
+            animation: floatUp 8s linear infinite;
+            z-index: 1;
+        }
+        /* Glow effects */
+        .romantic-glow {
+            box-shadow: 0 0 35px rgba(255, 105, 180, 0.5);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 182, 193, 0.8), 0 0 30px rgba(255, 105, 180, 0.6);
+        }
+        /* Candle flame styling */
+        .candle-flame {
+            width: 14px;
+            height: 22px;
+            background: radial-gradient(circle, #fff 10%, #ffcc00 40%, #ff3300 90%);
+            border-radius: 50% 50% 35% 35%;
+            box-shadow: 0 0 15px #ff9900, 0 0 30px #ff3300;
+            animation: flicker 0.6s infinite alternate;
+            transform-origin: bottom center;
+            transition: all 0.3s ease;
+        }
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-3deg); opacity: 0.9; }
+            100% { transform: scale(1.1) rotate(3deg); opacity: 1; }
+        }
+        .candle-out {
+            transform: scale(0) !important;
+            opacity: 0 !important;
+        }
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(45, 10, 30, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 182, 193, 0.2);
+        }
+        /* Hide scrollbars nicely */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a0510;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e11d48;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col items-center justify-center">
+
+    <div id="petals-container" class="absolute inset-0 overflow-hidden pointer-events-none z-0"></div>
+
+    <!-- BACKGROUND AUDIO ELEMENT -->
+    <audio id="bgAudio" loop>
+        <source src="https://actions.google.com/sounds/v1/ambiences/romantic_music_box.ogg" type="audio/ogg">
+        <source src="media/background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- FLOATING MUSIC PLAYER WIDGET -->
+    <div id="audioWidget" class="fixed top-4 right-4 z-50 hidden items-center gap-3 bg-rose-950/80 border border-rose-500/40 backdrop-blur-md px-4 py-2 rounded-full shadow-lg transition-all duration-300">
+        <div class="relative flex items-center justify-center w-8 h-8 rounded-full bg-rose-600 text-white animate-pulse">
+            <i class="fa-solid fa-music text-xs"></i>
+        </div>
+        <div class="text-xs">
+            <p class="font-semibold text-rose-200">Our Melody</p>
+            <p id="audioStatusText" class="text-rose-400 text-[10px]">Playing 🎶</p>
+        </div>
+        <button id="toggleAudioBtn" class="ml-2 w-9 h-9 rounded-full bg-rose-600/80 hover:bg-rose-500 text-white flex items-center justify-center transition shadow">
+            <span id="audioIcon">💖</span>
+        </button>
+    </div>
+
+    <!-- ==================== 1. LOGIN PAGE VIEW ==================== -->
+    <div id="loginView" class="relative z-10 w-full max-w-md mx-auto p-4 transition-all duration-700">
+        <div class="glass-card p-8 rounded-3xl shadow-2xl text-center relative overflow-hidden romantic-glow">
+            <div class="absolute -top-6 -left-6 w-20 h-20 bg-rose-500/20 rounded-full blur-xl pointer-events-none"></div>
+            <div class="absolute -bottom-6 -right-6 w-20 h-20 bg-pink-500/20 rounded-full blur-xl pointer-events-none"></div>
+
+            <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-tr from-rose-600 to-pink-400 flex items-center justify-center shadow-lg animate-bounce">
+                <i class="fa-solid fa-heart text-white text-3xl"></i>
+            </div>
+
+            <h1 class="dancing-script text-4xl font-bold text-glow text-rose-200 mb-1">NITHYA's Special day</h1>
+            <p class="text-xs text-rose-300/80 mb-6 tracking-wider uppercase font-medium">Exclusive Romantic Birthday Universe</p>
+
+            <form id="loginForm" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-semibold text-rose-300 mb-1 ml-1"><i class="fa-solid fa-user mr-1 text-rose-400"></i> User ID</label>
+                    <input type="text" id="userIdInput" required placeholder="Enter User ID " 
+                        class="w-full px-4 py-3 bg-black/40 border border-rose-500/30 rounded-xl text-white placeholder-rose-400/50 focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-500/30 transition text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-rose-300 mb-1 ml-1"><i class="fa-solid fa-key mr-1 text-rose-400"></i> Passcode</label>
+                    <input type="password" id="passInput" required placeholder="Enter Passcode " 
+                        class="w-full px-4 py-3 bg-black/40 border border-rose-500/30 rounded-xl text-white placeholder-rose-400/50 focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-500/30 transition text-sm">
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-rose-300/80 px-1">
+                    
+                </div>
+
+                <div id="loginError" class="hidden text-xs text-rose-400 text-center font-medium bg-rose-900/40 py-2 rounded-lg border border-rose-500/30">
+                    <i class="fa-solid fa-circle-exclamation mr-1"></i> Incorrect User ID or Passcode, my dear! Try again.
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-500 hover:from-rose-500 hover:to-pink-500 text-white font-semibold rounded-xl shadow-lg shadow-rose-600/40 transform hover:-translate-y-0.5 transition duration-200 text-sm tracking-wide flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-lock-open"></i> Enter Birthday Sanctuary
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== 2. HOME PAGE VIEW (Initially Hidden) ==================== -->
+    <div id="homeView" class="hidden relative z-10 w-full max-w-4xl mx-auto p-4 flex flex-col items-center min-h-screen justify-between py-6">
+        
+        <div class="w-full flex justify-between items-center px-4 mb-2">
+            <div class="flex items-center gap-2 text-rose-300 bg-rose-950/60 px-4 py-1.5 rounded-full border border-rose-500/30 backdrop-blur-sm text-xs font-medium shadow">
+                <i class="fa-solid fa-calendar-days text-rose-400"></i>
+                <span id="dateTicker">10 OCT 2026</span>
+            </div>
+            <div class="flex items-center gap-2 text-rose-300 bg-rose-950/60 px-4 py-1.5 rounded-full border border-rose-500/30 backdrop-blur-sm text-xs font-medium shadow">
+                <i class="fa-solid fa-heart text-rose-400 animate-pulse"></i>
+                <span>Forever❤️ Yours</span>
+            </div>
+        </div>
+
+        <div class="w-full grid grid-cols-1 md:grid-cols-12 gap-6 items-center my-auto">
+            
+            <div class="md:col-span-7 text-center md:text-left flex flex-col items-center md:items-start space-y-5">
+                <div class="space-y-1">
+                    <div class="flex items-center justify-center md:justify-start gap-3">
+                        <h1 class="dancing-script text-5xl md:text-7xl font-bold text-rose-300 text-glow">Happy</h1>
+                        <div class="w-14 h-14 rounded-full bg-rose-500/20 border border-rose-400/40 flex items-center justify-center shadow-lg animate-spin" style="animation-duration: 12s;">
+                            <img src="images/ASDF.jpg">
+                        </div>
+                    </div>
+                    <h1 class="dancing-script text-5xl md:text-7xl font-bold text-pink-400 text-glow">Birthday Nithya</h1>
+                </div>
+
+                <div class="bg-rose-950/40 border border-rose-500/30 p-4 rounded-2xl max-w-md backdrop-blur-md shadow-lg">
+                    <p class="text-xs md:text-sm text-rose-200/90 leading-relaxed italic">
+                        "My Friend, you are a very special girl💝. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and endless joy..."
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap gap-2.5 justify-center md:justify-start pt-1">
+                    <button id="openLetterBtn" class="px-5 py-2.5 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-medium rounded-xl shadow-lg shadow-rose-600/30 transition transform hover:-translate-y-0.5 flex items-center gap-2 text-xs md:text-sm">
+                        <i class="fa-regular fa-envelope"></i> MY Letter 💌
+                    </button>
+                    <button id="goToCakeBtn" class="px-5 py-2.5 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-medium rounded-xl shadow-lg shadow-pink-600/30 transition transform hover:-translate-y-0.5 flex items-center gap-2 text-xs md:text-sm">
+                        <i class="fa-solid fa-cake-candles"></i> Cut Cake 🎂
+                    </button>
+                    <button id="goToGameBtn" class="px-5 py-2.5 bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white font-medium rounded-xl shadow-lg shadow-amber-600/30 transition transform hover:-translate-y-0.5 flex items-center gap-2 text-xs md:text-sm">
+                        <i class="fa-solid fa-gamepad"></i> Play Game 🎮
+                    </button>
+                    <button id="goToGalleryBtn" class="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-medium rounded-xl shadow-lg shadow-purple-600/30 transition transform hover:-translate-y-0.5 flex items-center gap-2 text-xs md:text-sm">
+                        <i class="fa-solid fa-images"></i> Memories 🎁
+                    </button>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 flex justify-center relative">
+                <div class="relative w-64 h-72 rounded-3xl glass-card flex flex-col items-center justify-center p-4 romantic-glow">
+                    <div class="absolute -top-8 -left-6 animate-bounce" style="animation-duration: 3s;">
+                        <div class="w-12 h-16 bg-gradient-to-b from-rose-400 to-rose-600 rounded-full shadow-md flex items-center justify-center text-white text-xs font-bold">🎈</div>
+                    </div>
+                    <div class="absolute -top-10 -right-6 animate-bounce" style="animation-duration: 4s;">
+                        <div class="w-12 h-16 bg-gradient-to-b from-pink-400 to-purple-600 rounded-full shadow-md flex items-center justify-center text-white text-xs font-bold">🎈</div>
+                    </div>
+
+                    <div class="w-36 h-36 rounded-2xl overflow-hidden border-2 border-rose-400/60 shadow-xl mb-4 relative group">
+                        <img src="images/nithu.png" onerror="this.src='https://placehold.co/400x400/4a1535/ffb6c1?text=NITHYA'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rose-950/60 to-transparent"></div>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="flex items-center justify-center gap-2 text-rose-300 font-semibold text-base">
+                            <i class="fa-solid fa-heart text-xs text-rose-400"></i>
+                            <span>NITHYA 💝</span>
+                            <i class="fa-solid fa-heart text-xs text-rose-400"></i>
+                        </div>
+                        <p class="text-[11px] text-rose-300/70 mt-1">Birthday Princess 👑✨</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center text-xs text-rose-300/50 mt-4">
+            <p>Made with endless love & warm wishes for NITHYA ❤️</p>
+        </div>
+    </div>
+
+    <!-- ==================== 3. LOVE LETTER MODAL ==================== -->
+    <div id="letterModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-card w-full max-w-2xl rounded-3xl p-6 md:p-8 relative romantic-glow shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button id="closeLetterBtn" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-rose-950/80 hover:bg-rose-800 text-rose-300 flex items-center justify-center transition border border-rose-500/30">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-rose-600/30 text-rose-300 mb-2 border border-rose-500/40">
+                    <i class="fa-solid fa-envelope-open-text text-xl"></i>
+                </div>
+                <h3 class="dancing-script text-3xl font-bold text-rose-200">To: NITHYA 💖</h3>
+                <div class="w-24 h-0.5 bg-gradient-to-r from-transparent via-rose-500 to-transparent mx-auto mt-2"></div>
+            </div>
+
+            <div class="space-y-4 text-sm md:text-base text-rose-100/90 leading-relaxed font-light bg-black/30 p-6 rounded-2xl border border-rose-500/20">
+                <h4 class="dancing-script text-2xl text-rose-300 font-bold mb-2">Happy Birthday!</h4>
+                <p>
+                    Happy Birthday to one of the most breathtaking, radiant🙈❤️, and extraordinarily special souls to ever walk this earth! 💖✨.
+                </p>
+                <p>
+                    Today isn't just about celebrating the day you were born; it’s about celebrating the absolute magic you bring into every single life you touch, including mine. 🌹 From the moment you came into my world, you’ve had this effortless, beautiful way of turning ordinary days into bright✨, unforgettable moments just by being your genuine, amazing self. 🦋🎂
+                </p>
+                <p>
+                    💌🌹May this brand-new chapter of your life unfold with endless joy, overflowing love, boundless success, and all the radiant happiness your pure heart so deeply deserves. 🌟🍾 I pray that every single dream and quiet wish hidden inside your heart blossoms into reality, and that life surrounds you with reasons to smile brighter with each passing day. 🥰💐
+No matter how quietly or deeply I adore you🥰❤️, please always know that you hold a uniquely precious, irreplaceable place in my heart today, tomorrow, and always. 💌💫 Wishing you the happiest of birthdays, my dearest Nithya. May your year ahead be as magical, sweet, and extraordinary as you are! 🎂🥂💖🌹✨
+                </p>
+                <p class="font-semibold text-rose-300 pt-2">
+                    Happy Birthday once again, beautiful! 🎂🌹❤️❤️🌹✨
+                </p>
+            </div>
+
+            <div class="mt-6 flex justify-end">
+                <button id="proceedToCakeFromLetter" class="px-6 py-2.5 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-semibold shadow transition flex items-center gap-2">
+                    Proceed to Cake Cutting 🎂 <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 4. Let's make life as sweet as this moment🎂🌹❤️, forever together ==================== -->
+    <div id="cakeView" class="fixed inset-0 z-50 hidden flex-col items-center justify-center bg-gradient-to-b from-[#2c0b1a] via-[#3a1024] to-[#1a0510] p-4 overflow-y-auto">
+        <div class="absolute top-4 left-4 z-20">
+            <button id="backToHomeFromCake" class="px-4 py-2 bg-rose-950/80 border border-rose-500/40 hover:bg-rose-800 text-rose-200 rounded-xl text-xs font-medium flex items-center gap-2 transition shadow">
+                <i class="fa-solid fa-arrow-left"></i> Home
+            </button>
+        </div>
+
+        <div class="text-center max-w-xl mx-auto mb-4 mt-12">
+            <h2 class="dancing-script text-3xl md:text-5xl font-bold text-rose-200 text-glow mb-1">Let's make life as sweet as this moment🎂🌹❤️, forever together 🎂✨</h2>
+            <p id="cakeInstruction" class="text-xs md:text-sm text-rose-300/80">
+                Step 1: Blow out the 3 candles by clicking or tapping them!
+            </p>
+        </div>
+
+        <!-- 3-Layer Customized Birthday Cake Container -->
+        <div id="cakeStage" class="relative flex flex-col items-center my-4 select-none">
+            <!-- Candles Row -->
+            <div id="candlesContainer" class="flex gap-6 mb-2 z-30">
+                <div class="flex flex-col items-center cursor-pointer candle-item p-2" onclick="blowCandle(0)">
+                    <div class="candle-flame" id="flame-0"></div>
+                    <div class="w-3 h-10 bg-gradient-to-r from-pink-200 via-white to-pink-300 rounded-sm shadow"></div>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer candle-item p-2" onclick="blowCandle(1)">
+                    <div class="candle-flame" id="flame-1"></div>
+                    <div class="w-3 h-12 bg-gradient-to-r from-yellow-200 via-white to-yellow-300 rounded-sm shadow"></div>
+                </div>
+                <div class="flex flex-col items-center cursor-pointer candle-item p-2" onclick="blowCandle(2)">
+                    <div class="candle-flame" id="flame-2"></div>
+                    <div class="w-3 h-10 bg-gradient-to-r from-pink-200 via-white to-pink-300 rounded-sm shadow"></div>
+                </div>
+            </div>
+
+            <!-- Top Layer -->
+            <div id="layerTop" class="w-44 h-16 bg-gradient-to-r from-pink-400 via-rose-500 to-pink-500 rounded-t-2xl shadow-lg border-t-2 border-white/40 flex items-center justify-center relative overflow-hidden transition-all duration-500">
+                <div class="absolute inset-x-0 top-0 h-4 bg-white/80 rounded-b-xl flex justify-around items-center px-2">
+                    <span class="w-2 h-2 rounded-full bg-pink-400"></span>
+                    <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                    <span class="w-2 h-2 rounded-full bg-pink-400"></span>
+                </div>
+                <span class="dancing-script text-white text-base font-bold mt-2">NITHYA 💖</span>
+                <!-- Top layer cut slit -->
+                <div id="slitTop" class="absolute inset-y-0 right-0 w-0 bg-black/60 transition-all duration-300 pointer-events-none"></div>
+            </div>
+
+            <!-- Middle Layer -->
+            <div id="layerMid" class="w-60 h-20 bg-gradient-to-r from-rose-500 via-pink-600 to-rose-600 rounded-t-xl shadow-xl border-t-2 border-white/30 flex items-center justify-center relative overflow-hidden transition-all duration-500">
+                <div class="absolute inset-x-0 top-0 h-4 bg-white/70 rounded-b-xl flex justify-around items-center px-4">
+                    <span class="w-3 h-2 bg-pink-400 rounded-full"></span>
+                    <span class="w-3 h-2 bg-rose-500 rounded-full"></span>
+                    <span class="w-3 h-2 bg-pink-400 rounded-full"></span>
+                    <span class="w-3 h-2 bg-rose-500 rounded-full"></span>
+                </div>
+                <span class="text-xs tracking-widest text-rose-100 font-semibold uppercase mt-2">Happy Birthday ✨</span>
+                <div id="slitMid" class="absolute inset-y-0 right-0 w-0 bg-black/60 transition-all duration-300 pointer-events-none"></div>
+            </div>
+
+            <!-- Bottom Layer -->
+            <div id="layerBot" class="w-80 h-24 bg-gradient-to-r from-pink-600 via-rose-700 to-pink-700 rounded-t-2xl shadow-2xl border-t-2 border-white/30 flex items-center justify-center relative overflow-hidden transition-all duration-500">
+                <div class="absolute inset-x-0 top-0 h-5 bg-white/80 rounded-b-2xl flex justify-around items-center px-4">
+                    <span class="w-3.5 h-2.5 bg-rose-500 rounded-full"></span>
+                    <span class="w-3.5 h-2.5 bg-pink-400 rounded-full"></span>
+                    <span class="w-3.5 h-2.5 bg-rose-500 rounded-full"></span>
+                    <span class="w-3.5 h-2.5 bg-pink-400 rounded-full"></span>
+                    <span class="w-3.5 h-2.5 bg-rose-500 rounded-full"></span>
+                </div>
+                <span class="dancing-script text-rose-200 text-xl font-bold mt-3">Make a Wish! 🌹</span>
+                <div id="slitBot" class="absolute inset-y-0 right-0 w-0 bg-black/60 transition-all duration-300 pointer-events-none"></div>
+            </div>
+
+            <div class="w-92 h-4 bg-gray-300 rounded-full shadow-2xl border border-gray-400 -mt-1"></div>
+
+            <!-- Realistic Draggable Knife Tool -->
+            <div id="knifeTool" class="absolute z-40 hidden cursor-grab active:cursor-grabbing transform -translate-x-1/2 -translate-y-1/2 pointer-events-auto transition-transform duration-75">
+                <div class="flex flex-col items-center">
+                    <div class="text-2xl filter drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">🔪</div>
+                    <span class="bg-rose-600 text-white text-[9px] px-2 py-0.5 rounded-full font-bold shadow animate-pulse">Drag to Cut!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="flex flex-wrap gap-3 justify-center mt-3 z-30">
+            <button id="blowCandlesBtn" onclick="blowAllCandles()" class="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-semibold rounded-xl shadow-lg transition text-xs flex items-center gap-2">
+                <i class="fa-solid fa-wind"></i> Blow All Candles 💨
+            </button>
+            <button id="startCutBtn" disabled onclick="initiateCakeCutting()" class="px-5 py-2.5 bg-gray-600 text-gray-300 font-semibold rounded-xl shadow-lg transition text-xs flex items-center gap-2 cursor-not-allowed">
+                <i class="fa-solid fa-utensils"></i> Take Knife & Slice Cake 🔪
+            </button>
+        </div>
+
+        <!-- Success Message & Next Button -->
+        <div id="cakeSuccessBox" class="hidden mt-4 text-center animate-fade-in z-30">
+            <div class="bg-rose-950/90 border border-rose-500/50 p-4 rounded-2xl max-w-md mx-auto shadow-xl">
+                <p class="text-xs md:text-sm font-semibold text-rose-200 mb-2">🎉 Wonderful! You cut the birthday cake like god princess! ✨</p>
+                <div class="flex gap-2 justify-center">
+                    <button onclick="openGalleryFromCake()" class="px-4 py-2 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 text-white rounded-xl text-xs font-semibold shadow transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-images"></i> View Memories 🎁
+                    </button>
+                    <button onclick="openGameFromCake()" class="px-4 py-2 bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 text-white rounded-xl text-xs font-semibold shadow transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-gamepad"></i> Play Game 🎮
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 5. BIRTHDAY MINI-GAME VIEW ("Nithya's Heart Collector") ==================== -->
+    <div id="gameView" class="fixed inset-0 z-50 hidden flex-col items-center justify-between bg-gradient-to-b from-[#2c0b1a] via-[#4a1535] to-[#1a0510] p-4 overflow-y-auto">
+        <div class="w-full max-w-3xl flex justify-between items-center my-3 px-2">
+            <button id="backToHomeFromGame" class="px-4 py-2 bg-rose-950/80 border border-rose-500/40 hover:bg-rose-800 text-rose-200 rounded-xl text-xs font-medium flex items-center gap-2 transition shadow">
+                <i class="fa-solid fa-arrow-left"></i> Home
+            </button>
+            <div class="text-center">
+                <h2 class="dancing-script text-3xl md:text-4xl font-bold text-rose-200 text-glow">Nithya's Heart Collector 💖🎮</h2>
+            </div>
+            <div class="flex items-center gap-3 bg-rose-950/80 border border-rose-500/40 px-3 py-1.5 rounded-full text-xs font-semibold text-rose-200">
+                <span>Score: <strong id="gameScore" class="text-pink-400">0</strong></span>
+                <span>Time: <strong id="gameTimer" class="text-amber-400">30</strong>s</span>
+            </div>
+        </div>
+
+        <div class="text-center max-w-md mx-auto mb-2">
+            <p id="gameInstructions" class="text-xs text-rose-300/80">
+                Tap or click on the falling hearts and birthday gifts to collect points for Nithya before time runs out! Avoid the broken hearts 💔.
+            </p>
+        </div>
+
+        <!-- Game Arena Canvas / Box -->
+        <div id="gameArena" class="relative w-full max-w-2xl h-[380px] glass-card rounded-3xl overflow-hidden shadow-2xl romantic-glow border border-rose-500/30 my-2 cursor-crosshair">
+            <!-- Start Game Overlay inside arena -->
+            <div id="gameOverlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center z-20">
+                <div class="w-16 h-16 rounded-full bg-rose-600/30 border border-rose-500/50 flex items-center justify-center text-rose-300 text-2xl mb-3 shadow-lg animate-bounce">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <h3 class="dancing-script text-3xl font-bold text-rose-200 mb-2">Ready to Play, Nithya?</h3>
+                <p class="text-xs text-rose-300/80 mb-4 max-w-xs">Catch as many hearts & gifts as possible in 30 seconds to unlock a special birthday surprise!</p>
+                <button id="startGameBtn" onclick="startMiniGame()" class="px-6 py-3 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 text-white font-semibold rounded-xl shadow-lg transition text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-play"></i> Start Mini-Game 🚀
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Over / Victory Modal (Inside Game View) -->
+        <div id="gameCompleteBox" class="hidden absolute inset-0 z-30 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+            <div class="glass-card max-w-md w-full p-6 rounded-3xl text-center romantic-glow shadow-2xl">
+                <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-pink-500/20 border border-pink-400/50 flex items-center justify-center text-pink-300 text-2xl animate-bounce">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h3 class="dancing-script text-3xl font-bold text-rose-200 mb-1">Amazing Job, Nithya! 🌟</h3>
+                <p id="finalScoreText" class="text-sm font-semibold text-pink-300 mb-4">You collected 15 hearts!</p>
+                <p class="text-xs text-rose-200/80 mb-6">"Your kindness and joy make every single day feel like a celebration. Have the most wonderful birthday!"</p>
+                <div class="flex gap-3 justify-center">
+                    <button onclick="restartMiniGame()" class="px-4 py-2.5 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-semibold shadow transition">
+                        Play Again 🔄
+                    </button>
+                    <button onclick="openGalleryFromGame()" class="px-4 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 text-white rounded-xl text-xs font-semibold shadow transition">
+                        View Memories 🎁
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center text-xs text-rose-300/50 mb-2">
+            <p>Nithya's Birthday Arcade 🎮✨</p>
+        </div>
+    </div>
+
+    <!-- ==================== 6. CINEMATIC 5-PHOTO MEMORY GALLERY VIEW ==================== -->
+    <div id="galleryView" class="fixed inset-0 z-50 hidden flex-col items-center bg-gradient-to-b from-[#2c0b1a] via-[#4a1535] to-[#1a0510] p-4 overflow-y-auto">
+        <div class="w-full max-w-5xl flex justify-between items-center my-3 px-2">
+            <button id="backToHomeFromGallery" class="px-4 py-2 bg-rose-950/80 border border-rose-500/40 hover:bg-rose-800 text-rose-200 rounded-xl text-xs font-medium flex items-center gap-2 transition shadow">
+                <i class="fa-solid fa-arrow-left"></i> Home
+            </button>
+            <div class="text-center">
+                <h2 class="dancing-script text-3xl md:text-4xl font-bold text-rose-200 text-glow">Nithya's Cinematic Memories ✨</h2>
+            </div>
+            <div class="w-16"></div>
+        </div>
+
+        <p class="text-xs md:text-sm text-rose-300/80 mb-6 text-center max-w-lg">
+            Tap into any cinematic memory below to wander through chapters of a heart that lights up my entire world..
+        </p>
+
+        <div class="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-2 mb-10">
+            <!-- Photo 1 -->
+            <div class="glass-card rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-1 transition duration-300 cursor-pointer group" onclick="openLightbox(0)">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="images/photo1.jpg" alt="Memory 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition"></div>
+                    <span class="absolute top-3 left-3 bg-rose-600/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">Memory #1</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-rose-200 text-sm mb-1">Your Radiant Smile 😊</h3>
+                    <p class="text-xs text-rose-300/70 line-clamp-2">"Your smile is my favorite kind of magic. Happy Birthday queen! 👑✨💛..."</p>
+                </div>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="glass-card rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-1 transition duration-300 cursor-pointer group" onclick="openLightbox(1)">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="images/photo2.jpg" alt="Memory 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition"></div>
+                    <span class="absolute top-3 left-3 bg-rose-600/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">Memory #2</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-rose-200 text-sm mb-1">Grace & Elegance 🌹</h3>
+                    <p class="text-xs text-rose-300/70 line-clamp-2">"My heart beats only for you. Wishing the happiest birthday to my bestfriend! 🌸💖🥰..."</p>
+                </div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="glass-card rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-1 transition duration-300 cursor-pointer group" onclick="openLightbox(2)">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="images/photo3.jpg" alt="Memory 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition"></div>
+                    <span class="absolute top-3 left-3 bg-rose-600/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">Memory #3</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-rose-200 text-sm mb-1">Precious Moments 💖</h3>
+                    <p class="text-xs text-rose-300/70 line-clamp-2">"You are once in a lifetime, and I’m so lucky to call you mine. Happy Birthday, my princess 🌹❤️✨..."</p>
+                </div>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="glass-card rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-1 transition duration-300 cursor-pointer group" onclick="openLightbox(3)">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="images/photo4.jpg" alt="Memory 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition"></div>
+                    <span class="absolute top-3 left-3 bg-rose-600/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">Memory #4</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-rose-200 text-sm mb-1">Endless Dreams ✨</h3>
+                    <p class="text-xs text-rose-300/70 line-clamp-2">"Every single moment with you feels like a dream come true. Happy Birthday! 🌳💕✨..."</p>
+                </div>
+            </div>
+
+            <!-- Photo 5 -->
+            <div class="glass-card rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-1 transition duration-300 cursor-pointer group sm:col-span-2 md:col-span-1" onclick="openLightbox(4)">
+                <div class="h-52 overflow-hidden relative">
+                    <img src="images/photo5.jpg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition"></div>
+                    <span class="absolute top-3 left-3 bg-rose-600/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">Memory #5</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-rose-200 text-sm mb-1">Always Special 👑</h3>
+                    <p class="text-xs text-rose-300/70 line-clamp-2">"Your smile is the kind of beauty my heart could never forget💕..."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 7. LIGHTBOX ENLARGED PHOTO MODAL ==================== -->
+    <div id="lightboxModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4">
+        <div class="relative max-w-3xl w-full glass-card rounded-3xl p-4 md:p-6 text-center romantic-glow">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-rose-950/80 hover:bg-rose-800 text-rose-300 flex items-center justify-center transition border border-rose-500/30 z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="my-2">
+                <img id="lightboxImg" src="" alt="Enlarged Memory" class="max-h-[60vh] mx-auto rounded-2xl shadow-2xl object-contain border border-rose-500/30">
+            </div>
+
+            <div class="mt-4">
+                <h3 id="lightboxTitle" class="dancing-script text-2xl font-bold text-rose-200 mb-1"></h3>
+                <p id="lightboxDesc" class="text-xs md:text-sm text-rose-300/80 max-w-lg mx-auto italic"></p>
+            </div>
+
+            <div class="mt-4 flex justify-center">
+                <button onclick="closeLightbox()" class="px-6 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-semibold shadow transition">
+                    Back to Gallery
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const memoriesData = [
+            {
+                img: "images/photo1.jpg",
+                title: "Your Radiant Smile 😊",
+                desc: "Your smile is my favorite kind of magic. Happy Birthday  queen! 👑✨💛..."
+            },
+            {
+                img: "images/photo2.jpg",
+                title: "Grace & Elegance 🌹",
+                desc: "My heart beats only for you. Wishing the happiest birthday to my bestfriend 🌸💖🥰..."
+            },
+            {
+                img: "images/photo3.jpg",
+                title: "Precious Moments 💖",
+                desc: "You are once in a lifetime, and I’m so lucky to call you mine. Happy Birthday, my princess! 🌹❤️✨..."
+            },
+            {
+                img: "images/photo4.jpg",
+                title: "Endless Dreams ✨",
+                desc: "Every single moment with you feels like a dream come true. Happy Birthday ! 🌳💕✨..."
+            },
+            {
+                img: "images/photo5.jpg",
+                title: "Always Special 👑",
+                desc: "Your smile is the kind of beauty my heart could never forget💕.... Happy Birthday!"
+            }
+        ];
+
+        // Falling Rose Petals Generator
+        function createPetals() {
+            const container = document.getElementById('petals-container');
+            const icons = ['🌸', '🌹', '💖', '✨', '❤️'];
+            for (let i = 0; i < 20; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal text-rose-400/60 text-sm md:text-base';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.animationDuration = (6 + Math.random() * 6) + 's';
+                petal.style.animationDelay = (Math.random() * 5) + 's';
+                petal.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                container.appendChild(petal);
+            }
+        }
+        createPetals();
+
+        // Audio Player Logic
+        const bgAudio = document.getElementById('bgAudio');
+        const audioWidget = document.getElementById('audioWidget');
+        const toggleAudioBtn = document.getElementById('toggleAudioBtn');
+        const audioStatusText = document.getElementById('audioStatusText');
+        const audioIcon = document.getElementById('audioIcon');
+
+        let isPlaying = false;
+
+        function playBackgroundMusic() {
+            bgAudio.volume = 0.5;
+            bgAudio.play().then(() => {
+                isPlaying = true;
+                audioWidget.classList.remove('hidden');
+                audioWidget.classList.add('flex');
+                audioStatusText.textContent = "Playing 🎶";
+                audioIcon.textContent = "💖";
+            }).catch(err => {
+                console.log("Audio autoplay restricted:", err);
+                audioWidget.classList.remove('hidden');
+                audioWidget.classList.add('flex');
+                audioStatusText.textContent = "Tap to Play 🎵";
+                audioIcon.textContent = "▶️";
+            });
+        }
+
+        toggleAudioBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgAudio.pause();
+                isPlaying = false;
+                audioStatusText.textContent = "Paused ⏸️";
+                audioIcon.textContent = "▶️";
+            } else {
+                bgAudio.play();
+                isPlaying = true;
+                audioStatusText.textContent = "Playing 🎶";
+                audioIcon.textContent = "💖";
+            }
+        });
+
+        // Login Form Handler
+        const loginView = document.getElementById('loginView');
+        const homeView = document.getElementById('homeView');
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const user = document.getElementById('userIdInput').value.trim();
+            const pass = document.getElementById('passInput').value.trim();
+
+            if (user.toUpperCase() === 'NITHYA' && pass === '520/10oct') {
+                loginView.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => {
+                    loginView.classList.add('hidden');
+                    homeView.classList.remove('hidden');
+                    homeView.classList.add('flex');
+                    playBackgroundMusic();
+                }, 500);
+            } else {
+                loginError.classList.remove('hidden');
+            }
+        });
+
+        // Love Letter Modal Handler
+        const letterModal = document.getElementById('letterModal');
+        const openLetterBtn = document.getElementById('openLetterBtn');
+        const closeLetterBtn = document.getElementById('closeLetterBtn');
+        const proceedToCakeFromLetter = document.getElementById('proceedToCakeFromLetter');
+
+        openLetterBtn.addEventListener('click', () => {
+            letterModal.classList.remove('hidden');
+            letterModal.classList.add('flex');
+        });
+
+        closeLetterBtn.addEventListener('click', () => {
+            letterModal.classList.remove('flex');
+            letterModal.classList.add('hidden');
+        });
+
+        proceedToCakeFromLetter.addEventListener('click', () => {
+            letterModal.classList.remove('flex');
+            letterModal.classList.add('hidden');
+            openCakeView();
+        });
+
+        // ==================== ULTRA-REALISTIC HUMAN CAKE CUTTING LOGIC ====================
+        const cakeView = document.getElementById('cakeView');
+        const goToCakeBtn = document.getElementById('goToCakeBtn');
+        const backToHomeFromCake = document.getElementById('backToHomeFromCake');
+        const blowCandlesBtn = document.getElementById('blowCandlesBtn');
+        const startCutBtn = document.getElementById('startCutBtn');
+        const cakeInstruction = document.getElementById('cakeInstruction');
+        const cakeSuccessBox = document.getElementById('cakeSuccessBox');
+        const knifeTool = document.getElementById('knifeTool');
+        const cakeStage = document.getElementById('cakeStage');
+
+        let candlesBlown = [false, false, false];
+        let isCuttingActive = false;
+        let cutProgress = 0; // 0 to 100
+
+        function openCakeView() {
+            homeView.classList.add('hidden');
+            cakeView.classList.remove('hidden');
+            cakeView.classList.add('flex');
+        }
+
+        goToCakeBtn.addEventListener('click', openCakeView);
+
+        backToHomeFromCake.addEventListener('click', () => {
+            cakeView.classList.remove('flex');
+            cakeView.classList.add('hidden');
+            homeView.classList.remove('hidden');
+            homeView.classList.add('flex');
+        });
+
+        window.blowCandle = function(index) {
+            candlesBlown[index] = true;
+            const flame = document.getElementById(`flame-${index}`);
+            flame.classList.add('candle-out');
+            checkAllCandles();
+        };
+
+        window.blowAllCandles = function() {
+            candlesBlown = [true, true, true];
+            for (let i = 0; i < 3; i++) {
+                document.getElementById(`flame-${i}`).classList.add('candle-out');
+            }
+            checkAllCandles();
+        };
+
+        function checkAllCandles() {
+            if (candlesBlown.every(Boolean)) {
+                cakeInstruction.textContent = "Step 2: Candles are out! Click 'Take Knife & Slice Cake', then drag the knife across the cake from left to right!";
+                blowCandlesBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                blowCandlesBtn.disabled = true;
+                startCutBtn.classList.remove('bg-gray-600', 'text-gray-300', 'cursor-not-allowed');
+                startCutBtn.classList.add('bg-gradient-to-r', 'from-rose-600', 'to-pink-600', 'hover:from-rose-500', 'text-white', 'shadow-rose-600/40');
+                startCutBtn.disabled = false;
+            }
+        }
+
+        window.initiateCakeCutting = function() {
+            startCutBtn.style.display = 'none';
+            knifeTool.classList.remove('hidden');
+            isCuttingActive = true;
+            cakeInstruction.textContent = "🔪 sweet Action: Drag or move the knife across the cake to slice through layers!";
+            
+            // Position knife above cake stage initially
+            knifeTool.style.left = '30px';
+            knifeTool.style.top = '120px';
+        };
+
+        // Human Drag / Touch Cake Cutting interaction
+        cakeStage.addEventListener('mousemove', (e) => {
+            if (!isCuttingActive) return;
+            handleKnifeMovement(e.clientX, e.clientY);
+        });
+
+        cakeStage.addEventListener('touchmove', (e) => {
+            if (!isCuttingActive) return;
+            const touch = e.touches[0];
+            handleKnifeMovement(touch.clientX, touch.clientY);
+        }, { passive: true });
+
+        function handleKnifeMovement(clientX, clientY) {
+            const rect = cakeStage.getBoundingClientRect();
+            let x = clientX - rect.left;
+            let y = clientY - rect.top;
+
+            // Constrain knife inside stage bounds
+            x = Math.max(20, Math.min(rect.width - 20, x));
+            y = Math.max(20, Math.min(rect.height - 20, y));
+
+            knifeTool.style.left = x + 'px';
+            knifeTool.style.top = y + 'px';
+
+            // Calculate percentage across the cake width
+            let pct = ((x - 20) / (rect.width - 40)) * 100;
+            pct = Math.max(0, Math.min(100, pct));
+            cutProgress = pct;
+
+            // Expand black cut slits on layers to simulate realistic slicing
+            document.getElementById('slitTop').style.width = cutProgress + '%';
+            document.getElementById('slitMid').style.width = cutProgress + '%';
+            document.getElementById('slitBot').style.width = cutProgress + '%';
+
+            if (cutProgress >= 90 && isCuttingActive) {
+                isCuttingActive = false;
+                knifeTool.classList.add('hidden');
+                completeCakeCutting();
+            }
+        }
+
+        function completeCakeCutting() {
+            cakeInstruction.textContent = "✨ Spectacular! The cake has been sliced open successfully! Happy Birthday Nithya! 💖";
+            
+            // Trigger Confetti explosion
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+
+            setTimeout(() => {
+                cakeSuccessBox.classList.remove('hidden');
+            }, 600);
+        }
+
+        // Navigation from Cake
+        window.openGalleryFromCake = function() {
+            cakeView.classList.remove('flex');
+            cakeView.classList.add('hidden');
+            document.getElementById('galleryView').classList.remove('hidden');
+            document.getElementById('galleryView').classList.add('flex');
+        };
+
+        window.openGameFromCake = function() {
+            cakeView.classList.remove('flex');
+            cakeView.classList.add('hidden');
+            document.getElementById('gameView').classList.remove('hidden');
+            document.getElementById('gameView').classList.add('flex');
+        };
+
+        // ==================== 5. BIRTHDAY MINI-GAME LOGIC ("Nithya's Heart Collector") ====================
+        const goToGameBtn = document.getElementById('goToGameBtn');
+        const backToHomeFromGame = document.getElementById('backToHomeFromGame');
+        const gameView = document.getElementById('gameView');
+        const gameArena = document.getElementById('gameArena');
+        const gameOverlay = document.getElementById('gameOverlay');
+        const startGameBtn = document.getElementById('startGameBtn');
+        const gameScoreEl = document.getElementById('gameScore');
+        const gameTimerEl = document.getElementById('gameTimer');
+        const gameCompleteBox = document.getElementById('gameCompleteBox');
+        const finalScoreText = document.getElementById('finalScoreText');
+
+        let gameInterval = null;
+        let spawnInterval = null;
+        let score = 0;
+        let timeLeft = 30;
+        let isGameRunning = false;
+
+        goToGameBtn.addEventListener('click', () => {
+            homeView.classList.add('hidden');
+            gameView.classList.remove('hidden');
+            gameView.classList.add('flex');
+        });
+
+        backToHomeFromGame.addEventListener('click', () => {
+            stopMiniGame();
+            gameView.classList.remove('flex');
+            gameView.classList.add('hidden');
+            homeView.classList.remove('hidden');
+            homeView.classList.add('flex');
+        });
+
+        window.startMiniGame = function() {
+            gameOverlay.classList.add('hidden');
+            gameCompleteBox.classList.add('hidden');
+            score = 0;
+            timeLeft = 30;
+            gameScoreEl.textContent = score;
+            gameTimerEl.textContent = timeLeft;
+            isGameRunning = true;
+
+            // Clear old items
+            $('.game-item').remove();
+
+            // Timer countdown
+            gameInterval = setInterval(() => {
+                timeLeft--;
+                gameTimerEl.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    endMiniGame();
+                }
+            }, 1000);
+
+            // Spawn items
+            spawnInterval = setInterval(() => {
+                if (isGameRunning) {
+                    spawnGameItem();
+                }
+            }, 600);
+        };
+
+        function spawnGameItem() {
+            const arenaRect = gameArena.getBoundingClientRect();
+            const types = ['heart', 'gift', 'star', 'bomb'];
+            const typeWeights = ['heart', 'heart', 'gift', 'star', 'bomb']; // higher chance for hearts & gifts
+            const chosenType = typeWeights[Math.floor(Math.random() * typeWeights.length)];
+
+            const item = document.createElement('div');
+            item.className = 'absolute cursor-pointer transition-transform transform hover:scale-125 select-none text-2xl z-10';
+            
+            let iconHtml = '💖';
+            let points = 1;
+            if (chosenType === 'gift') { iconHtml = '🎁'; points = 3; }
+            else if (chosenType === 'star') { iconHtml = '⭐'; points = 2; }
+            else if (chosenType === 'bomb') { iconHtml = '💔'; points = -2; }
+
+            item.innerHTML = iconHtml;
+            const randomX = Math.random() * (arenaRect.width - 50);
+            item.style.left = randomX + 'px';
+            item.style.top = '-40px';
+
+            gameArena.appendChild(item);
+
+            // Animate falling down
+            let fallSpeed = 2 + Math.random() * 3;
+            let currentTop = -40;
+
+            const fallAnim = setInterval(() => {
+                if (!isGameRunning) {
+                    clearInterval(fallAnim);
+                    item.remove();
+                    return;
+                }
+
+                currentTop += fallSpeed;
+                item.style.top = currentTop + 'px';
+
+                // Check if reached bottom
+                if (currentTop > arenaRect.height - 40) {
+                    clearInterval(fallAnim);
+                    item.remove();
+                }
+            }, 30);
+
+            // Click / Tap listener
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!isGameRunning) return;
+                score += points;
+                if (score < 0) score = 0;
+                gameScoreEl.textContent = score;
+
+                // Floating feedback text
+                const feedback = document.createElement('div');
+                feedback.className = `absolute text-xs font-bold ${points > 0 ? 'text-pink-400' : 'text-red-500'} pointer-events-none z-30`;
+                feedback.style.left = item.style.left;
+                feedback.style.top = item.style.top;
+                feedback.textContent = points > 0 ? `+${points}` : `${points}`;
+                gameArena.appendChild(feedback);
+                setTimeout(() => feedback.remove(), 500);
+
+                clearInterval(fallAnim);
+                item.remove();
+            });
+        }
+
+        function endMiniGame() {
+            isGameRunning = false;
+            clearInterval(gameInterval);
+            clearInterval(spawnInterval);
+            $('.game-item').remove();
+
+            finalScoreText.textContent = `Nithya, you collected ${score} points! 💖`;
+            gameCompleteBox.classList.remove('hidden');
+
+            if (score >= 15) {
+                confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } });
+            }
+        }
+
+        window.restartMiniGame = function() {
+            gameCompleteBox.classList.add('hidden');
+            startMiniGame();
+        };
+
+        window.openGalleryFromGame = function() {
+            stopMiniGame();
+            gameView.classList.remove('flex');
+            gameView.classList.add('hidden');
+            document.getElementById('galleryView').classList.remove('hidden');
+            document.getElementById('galleryView').classList.add('flex');
+        };
+
+        function stopMiniGame() {
+            isGameRunning = false;
+            clearInterval(gameInterval);
+            clearInterval(spawnInterval);
+            $('.game-item').remove();
+            gameOverlay.classList.remove('hidden');
+            gameCompleteBox.classList.add('hidden');
+        }
+
+        // ==================== MEMORY GALLERY & LIGHTBOX ====================
+        const galleryView = document.getElementById('galleryView');
+        const goToGalleryBtn = document.getElementById('goToGalleryBtn');
+        const backToHomeFromGallery = document.getElementById('backToHomeFromGallery');
+
+        goToGalleryBtn.addEventListener('click', () => {
+            homeView.classList.add('hidden');
+            galleryView.classList.remove('hidden');
+            galleryView.classList.add('flex');
+        });
+
+        backToHomeFromGallery.addEventListener('click', () => {
+            galleryView.classList.remove('flex');
+            galleryView.classList.add('hidden');
+            homeView.classList.remove('hidden');
+            homeView.classList.add('flex');
+        });
+
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxDesc = document.getElementById('lightboxDesc');
+
+        window.openLightbox = function(index) {
+            const memory = memoriesData[index];
+            lightboxImg.src = memory.img;
+            lightboxTitle.textContent = memory.title;
+            lightboxDesc.textContent = memory.desc;
+            lightboxModal.classList.remove('hidden');
+            lightboxModal.classList.add('flex');
+        };
+
+        window.closeLightbox = function() {
+            lightboxModal.classList.remove('flex');
+            lightboxModal.classList.add('hidden');
+        };
+    </script>
+</body>
+</html>
